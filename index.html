@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <header>
+        <div id="search">
+            <input type="text" placeholder="Ciudad" id="name">
+            <input type="text" placeholder="Codigo del pais" id="country">
+            <button id="button" onclick="buscar()">Buscar</button>
+        </div>
+    </header>
+    <main>
+        <div id="container">
+            <div class="box">
+                <h2 id="ubication"></h2>
+                <h2 id="countryData"></h2>
+            </div>
+            <div class="box2">
+                <img id="icons" src="" height="60" width="60" alt="clima">
+                <h2 id="temperature--value"></h2>
+            </div>
+            <div class="box3">
+                <h2 id="temperature--humidity"></h2>
+                <h2 id="temperature--description"></h2>
+                <h3 id="wind--velocity"></h3>
+            </div>
+            
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <h3>Fabrizio Meloni</h3>
+        <p>Hecho con <span>❤</span> en Argentina</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

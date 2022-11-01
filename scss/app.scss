@@ -1,0 +1,211 @@
+@import 'abstracts/_variables' , 'abstracts/_mixins' , 'base/_reset';
+
+
+header{
+    
+    overflow: hidden;
+    width: 100%;
+    position:relative;
+    background: var(--color-primario);
+    box-shadow:  0rem .5rem .8rem #1c1e22;
+    top: 0;
+    z-index: 1000;
+    padding: 1.2rem 0;
+}
+#search{
+    @include flex(flex,nowrap,center,center);
+    gap: 2.5rem;
+
+    
+}
+
+#name,
+#country{
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: .5mm;
+    padding: 15px 25px;
+    margin-bottom: 1em;
+    text-align: center;
+    width: 200px;
+    background: transparent;
+    border-radius: 5%;
+    color: black;
+    box-shadow:  inset 8px 8px 4px #595e6e, inset -2px -5px 4px #797f94;
+}
+
+#name::placeholder,
+#country::placeholder{
+    color: rgb(33, 31, 31);
+}
+
+#button{
+    letter-spacing: .7mm;
+    text-transform: uppercase;
+    padding: .4rem 1rem;
+    border-radius: 1.25rem;
+    background-color: transparent;
+    box-shadow:  3px 6px 4px #595e6e, -3px -4px 4px #797f94;
+}
+
+#button:hover{
+    box-shadow:  3px 6px 4px #383b45, 
+    -3px -4px 4px #979fba;
+}
+#button:active{
+    box-shadow: inset 3px 6px 4px #595e6e, 
+    inset -4px -7px 4px #797f94;
+}
+
+main{
+    overflow: hidden;
+    height: 100vh;
+    @include flex(column,nowrap,center,center)
+}
+
+#container{
+    overflow: hidden;
+    border-radius: 10%;
+    position: relative;
+    box-shadow: 8px 8px 4px #595e6e, -2px -5px 4px #797f94;
+    max-width: 400px;
+    width: 600px;
+    height: 400px;
+}
+.box,
+.box2,
+.box3{
+    position: absolute;
+}
+
+.box{
+    top: 77px;
+    left: 150px;
+}
+.box2{
+    @include flex(row, nowrap,center,center);
+    gap: 1rem;
+    top: 173px;
+    left: 140px;
+}
+
+.box3{
+    @include flex(row,nowrap,space-around,center);
+    width: 300px;
+    top: 273px;
+    left: 50px;
+}
+#ubication{
+    font-size: 1.5rem;
+}
+#countryData{
+    margin-top: 15px;
+    font-size: .9rem;
+}
+#footer{
+    overflow: hidden;
+    @include flex(column,nowrap,center,center);
+    width: 100%;
+    box-shadow:  0rem -0.5rem 0.8rem #1c1e22;
+    padding: 1.2rem 0;
+    gap: .5rem;
+    span{
+        color: black;
+    }
+
+    h3{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    #search{
+        @include flex(column,nowrap,center,center);
+        gap: 1rem;
+        padding: .5rem 0;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    #container{
+        width: 300px;
+        height: 300px;
+    }
+
+    .box{
+        top: 50px;
+        left: 100px;
+    }
+    .box2{
+        top: 128px;
+        left: 85px;
+    }
+    
+    .box3{
+        @include flex(row,nowrap,space-around,center);
+        width: 300px;
+        top: 208px;
+        left: 2px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    #container{
+        width: 200px;
+        height: 300px;
+    }
+
+    .box{
+        left: 59px;
+    }
+
+    .box2{
+        left: 33px;
+    }
+
+    .box3{
+        @include flex(column,nowrap,space-around,center);
+        left: -48px;
+        gap: .5rem;
+    }
+}
+@media screen and (max-width: 220px) {
+
+    #container{
+        width: 150px;
+
+    }
+
+    .box{
+        left: 47px;
+    }
+
+    .box2{
+        left: 19px;
+    }
+
+    .box3{
+        left: -77px;
+    }
+
+    #name,
+    #country{
+        width: 150px;
+        padding: 10px 15px;
+    }
+
+    #name::placeholder,
+    #country::placeholder{
+        font-size: .8rem;
+    }
+
+    #temperature--value,
+    #temperature--humidity,
+    #temperature--description,
+    #ubication,
+    #wind--velocity{
+        font-size: .9rem;
+    }
+
+}
