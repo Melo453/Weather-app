@@ -4,7 +4,7 @@ const path = require('path');
 
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-app.set('port', (process.env.PORT || 2500));
+app.set('port', (process.env.PORT || 3000));
 app.use(express.static(path.join(__dirname, 'public'))); 
 
 app.set("views", __dirname + '/views');

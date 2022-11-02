@@ -1,0 +1,419 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+:root {
+  --color-primario: #696e81;
+  --color-secundario: #FFFAFF;
+  --color-terciario: #202226;
+  --color-cuaternario: #de5d00;
+  --color-quinario: #00ADB5;
+  /* Tipografía */
+  --tipo-principal: "Roboto", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primario: #696e81;
+    --color-secundario: #FFFAFF;
+    --color-terciario: #202226;
+    --color-cuaternario: #de5d00;
+    --color-quinario: #00ADB5;
+  }
+}
+/* Opcional */
+/* Configuramos si un usuario ha activado el modo alto contraste. (WD) */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primario: #696e81;
+    --color-secundario: #FFFAFF;
+    --color-terciario: #202226;
+    --color-cuaternario: #de5d00;
+    --color-quinario: #00ADB5;
+  }
+}
+/* Opcional */
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation: none;
+            animation: none;
+    transition: none;
+  }
+}
+/* Opcional */
+/* Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation: none;
+            animation: none;
+    transition: none;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* Evitamos problemas con las imagenes */
+img,
+picture,
+video,
+iframe,
+figure {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  /* opcional */
+  -o-object-fit: cover;
+     object-fit: cover;
+  /* opcional */
+  -o-object-position: center center;
+     object-position: center center;
+}
+
+/* Reseteamos los enlaces para funcionar como cajas... */
+a {
+  display: inline;
+}
+
+/* ... excepto los que se encuentran en párrafos */
+p a {
+  display: inline;
+}
+
+/* Quitamos los puntos de los <li> */
+li {
+  list-style-type: none;
+}
+
+/* Configuramos anclas suaves */
+/* Desactivamos estilos por defecto de las principales etiquetas de texto */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1rem;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Evitamos problemas con los pseudoelementos de quotes */
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+/* Configuramos el texto que seleccionamos */
+::-moz-selection {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+}
+::selection {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+}
+
+/* Nivelamos problemas de tipografías y colocación de formularios */
+form,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  background-color: transparent;
+  display: inline;
+  color: inherit;
+  /* opcional */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+/* Reseteamos las tablas */
+table,
+tr,
+td {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Evitamos problemas con los SVG */
+svg {
+  display: inline;
+  fill: currentColor;
+}
+
+/* Configuramos la tipografía para toda la web */
+body {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  font-size: 100%;
+  font-family: var(--tipo-principal);
+  color: var(--color-secundario);
+  background-color: var(--color-primario);
+  /* opcional */
+  /* opcional */
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  /* opcional */
+  font-smooth: always;
+  /* opcional */
+  -webkit-font-smoothing: antialiased;
+  /* opcional */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  background: var(--color-primario);
+  box-shadow: 0rem 0.5rem 0.8rem #1c1e22;
+  top: 0;
+  z-index: 1000;
+  padding: 1.2rem 0;
+}
+
+#search {
+  display: flex;
+  flex-flow: flex nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+#name,
+#country {
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.5mm;
+  padding: 15px 25px;
+  margin-bottom: 1em;
+  text-align: center;
+  width: 200px;
+  background: transparent;
+  border-radius: 5%;
+  color: black;
+  box-shadow: inset 8px 8px 4px #595e6e, inset -2px -5px 4px #797f94;
+}
+
+#name::-moz-placeholder, #country::-moz-placeholder {
+  color: rgb(33, 31, 31);
+}
+
+#name:-ms-input-placeholder, #country:-ms-input-placeholder {
+  color: rgb(33, 31, 31);
+}
+
+#name::placeholder,
+#country::placeholder {
+  color: rgb(33, 31, 31);
+}
+
+#button {
+  letter-spacing: 0.7mm;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  border-radius: 1.25rem;
+  background-color: transparent;
+  box-shadow: 3px 6px 4px #595e6e, -3px -4px 4px #797f94;
+}
+
+#button:hover {
+  box-shadow: 3px 6px 4px #383b45, -3px -4px 4px #979fba;
+}
+
+#button:active {
+  box-shadow: inset 3px 6px 4px #595e6e, inset -4px -7px 4px #797f94;
+}
+
+main {
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  overflow: hidden;
+  border-radius: 10%;
+  position: relative;
+  box-shadow: 8px 8px 4px #595e6e, -2px -5px 4px #797f94;
+  max-width: 400px;
+  width: 600px;
+  height: 400px;
+}
+
+.box,
+.box2,
+.box3 {
+  position: absolute;
+}
+
+.box {
+  top: 77px;
+  left: 150px;
+}
+
+.box2 {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  top: 173px;
+  left: 140px;
+}
+
+.box3 {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  top: 273px;
+  left: 50px;
+}
+
+#ubication {
+  font-size: 1.5rem;
+}
+
+#countryData {
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+#footer {
+  overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0rem -0.5rem 0.8rem #1c1e22;
+  padding: 1.2rem 0;
+  gap: 0.5rem;
+}
+#footer span {
+  color: black;
+}
+#footer h3 {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 620px) {
+  #search {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  #container {
+    width: 300px;
+    height: 300px;
+  }
+  .box {
+    top: 50px;
+    left: 100px;
+  }
+  .box2 {
+    top: 128px;
+    left: 85px;
+  }
+  .box3 {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    top: 208px;
+    left: 2px;
+  }
+}
+@media screen and (max-width: 330px) {
+  #container {
+    width: 200px;
+    height: 300px;
+  }
+  .box {
+    left: 59px;
+  }
+  .box2 {
+    left: 33px;
+  }
+  .box3 {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    left: -48px;
+    gap: 0.5rem;
+  }
+}
+@media screen and (max-width: 220px) {
+  #container {
+    width: 150px;
+  }
+  .box {
+    left: 47px;
+  }
+  .box2 {
+    left: 19px;
+  }
+  .box3 {
+    left: -77px;
+  }
+  #name,
+#country {
+    width: 150px;
+    padding: 10px 15px;
+  }
+  #name::-moz-placeholder, #country::-moz-placeholder {
+    font-size: 0.8rem;
+  }
+  #name:-ms-input-placeholder, #country:-ms-input-placeholder {
+    font-size: 0.8rem;
+  }
+  #name::placeholder,
+#country::placeholder {
+    font-size: 0.8rem;
+  }
+  #temperature--value,
+#temperature--humidity,
+#temperature--description,
+#ubication,
+#wind--velocity {
+    font-size: 0.9rem;
+  }
+}/*# sourceMappingURL=app.css.map */

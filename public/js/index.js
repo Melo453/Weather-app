@@ -1,25 +1,22 @@
+//declaro la api key
+const api_key = "3efc2b3823aaf74eccec6260a03c90cd";;
+
+//declaro todas las variables del DOM
+let temperatureValue = document.getElementById("temperature--value");
+let temperatureHumidity = document.getElementById("temperature--humidity");
+let temperatureDescription = document.getElementById("temperature--description");
+let ubication = document.getElementById("ubication");
+let windVelocity = document.getElementById("wind--velocity");
+let icons = document.getElementById("icons");
+let countryData = document.getElementById("countryData");
+
+
 window.addEventListener("load", () => {
-  let lon;
-  let lat;
-  let api_key;
-
-  let temperatureValue = document.getElementById("temperature--value");
-  let temperatureHumidity = document.getElementById("temperature--humidity");
-  let temperatureDescription = document.getElementById(
-    "temperature--description"
-  );
-
-  let ubication = document.getElementById("ubication");
-  let windVelocity = document.getElementById("wind--velocity");
-  let icons = document.getElementById("icons");
-
-  let countryData = document.getElementById("countryData");
-
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
-      lon = position.coords.longitude;
-      lat = position.coords.latitude;
-      api_key = "3efc2b3823aaf74eccec6260a03c90cd";
+      let lon = position.coords.longitude;
+      let lat = position.coords.latitude;
+
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric&lang=es`;
       console.log(url);
       fetch(url)
@@ -31,6 +28,7 @@ window.addEventListener("load", () => {
           temperatureValue.textContent = `${temp} °C`;
 
           switch (data.weather[0].main) {
+            
             case "Thunderstorm":
               icons.src = "imgs/thunder.svg";
               temperatureDescription.textContent = "TORMENTA";
@@ -63,7 +61,7 @@ window.addEventListener("load", () => {
               icons.src = "imgs/cloudy-day-1.svg";
               console.log("por defecto");
           }
-
+          icons.style.display = "block";
           let humidity_value = Math.round(data.main.humidity);
           temperatureHumidity.textContent = `Humedad: ${humidity_value}%`;
 
@@ -79,23 +77,14 @@ window.addEventListener("load", () => {
   }
 });
 
-function buscar() {
-  let temperatureValue = document.getElementById("temperature--value");
-  let temperatureDescription = document.getElementById(
-    "temperature--description"
-  );
+document.getElementById("search").addEventListener("submit", search);
 
-  let ubication = document.getElementById("ubication");
-  let windVelocity = document.getElementById("wind--velocity");
-  let countryData = document.getElementById("countryData");
-  let icons = document.getElementById("icons");
-
+function search(e) {
   var name = document.getElementById("name").value;
   var country = document.getElementById("country").value;
 
-  api_key = "3efc2b3823aaf74eccec6260a03c90cd";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${name},${country}&appid=${api_key}&units=metric&lang=es`;
-  console.log(url);
+
   fetch(url)
     .then((response) => {
       return response.json();
@@ -137,7 +126,7 @@ function buscar() {
           icons.src = "imgs/cloudy-day-1.svg";
           console.log("por defecto");
       }
-
+      icons.style.display = "block";
       ubication.textContent = data.name;
       countryData.textContent = data.sys.country;
       windVelocity.textContent = `${data.wind.speed} m/s`;
@@ -145,4 +134,6 @@ function buscar() {
     .catch((error) => {
       console.log(error);
     });
+
+  e.preventDefault();
 }
